@@ -1,7 +1,7 @@
 ## Función para el tratameinto incial de datos desde capa bronce a capa
 def transformacion_data(data_anexo_1_bronce,
-                        data_anexo_2,
-                        data_divi):
+                        data_anexo_2_bronce,
+                        data_divi_bronce):
     """
     Función para el tratameinto incial de datos desde capa bronce a capa.    
     Parámetros:    -----------
@@ -16,7 +16,7 @@ def transformacion_data(data_anexo_1_bronce,
     data_anex_1_pla = data_anexo_1_bronce.copy()
 
     ## Normalización de nombres de columnas
-    data_anex_1_pla.columns = data_anex_1.columns.str.lower()
+    data_anex_1_pla.columns = data_anex_1_pla.columns.str.lower()
     data_anex_1_pla
 
     ## renombre de columnas
@@ -66,7 +66,10 @@ def transformacion_data(data_anexo_1_bronce,
     data_anex_1_pla = data_anex_1_pla.drop(columns = ['cod_departamento', 'cod_municipio'])
 
     ## Data Anexo 2----------------------------------------------------------------
-    data_anex_2_pla = data_anexo_2.copy()
+    data_anex_2_pla = data_anexo_2_bronce.copy()
+
+    ## Normalización de nombres de columnas
+    data_anex_2_pla.columns = data_anex_2_pla.columns.str.lower()
 
     ## Eliminación de signos de puntuación
     data_anex_2_pla.columns = [
@@ -82,12 +85,12 @@ def transformacion_data(data_anexo_1_bronce,
     data_anex_2_pla.rename(columns={
         "codigo_de_la_cie-10_tres_caracteres": "codigo_cie10_tres_caracteres",
         "descripcion__de_codigos_mortalidad_a_tres_caracteres": "descripcion_codigo_mortalidad_tres_caracteres",
-        "codigo_de_la_cie-10_cuatro_caracteres": "codigo_cie10_cuatro_caracteres",
-        "descripcion__de_codigos_mortalidad_a_cuatro_caracteres": "descripcion_codigo_mortalidad_cuatro_caracteres"
+        "codigo_de_la_cie-10_cuatro_caracteres": "cod_muerte",
+        "descripcion__de_codigos_mortalidad_a_cuatro_caracteres": "descripcion_codigo_mortalidad_cuatro_caracteres",
     }, inplace=True)
 
     ## Data Divipola----------------------------------------------------------------
-    data_divi_pla = data_divi.copy()
-    data_divi_pla.columns = data_divi.columns.str.lower()
+    data_divi_pla = data_divi_bronce.copy()
+    data_divi_pla.columns = data_divi_pla.columns.str.lower()
 
     return data_anex_1_pla, data_anex_2_pla, data_divi_pla
