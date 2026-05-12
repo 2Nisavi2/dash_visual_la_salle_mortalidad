@@ -90,3 +90,48 @@ dicc_nivel_educativo = {1: 'Preescolar',
                          12: 'Doctorado',
                          13: 'Ninguno',
                          99: 'Sin información'}
+
+## Categorización de edades
+dicc_grupo_edad_categoria = {
+    # Mortalidad neonatal
+    0: "Mortalidad neonatal (Menor de 1 mes)",
+    1: "Mortalidad neonatal (Menor de 1 mes)",
+    2: "Mortalidad neonatal (Menor de 1 mes)",
+    3: "Mortalidad neonatal (Menor de 1 mes)",
+    4: "Mortalidad neonatal (Menor de 1 mes)",
+    # Mortalidad infantil
+    5: "Mortalidad infantil (1 a 11 meses)",
+    6: "Mortalidad infantil (1 a 11 meses)",
+    # Primera infancia
+    7: "Primera infancia (1 a 4 años)",
+    8: "Primera infancia (1 a 4 años)",
+    # Niñez
+    9: "Niñez (5 a 14 años)",
+    10: "Niñez (5 a 14 años)",
+    # Adolescencia
+    11: "Adolescencia (15 a 19 años)",
+    # Juventud
+    12: "Juventud (20 a 29 años)",
+    13: "Juventud (20 a 29 años)",
+    # Adultez temprana
+    14: "Adultez temprana (30 a 44 años)",
+    15: "Adultez temprana (30 a 44 años)",
+    16: "Adultez temprana (30 a 44 años)",
+    # Adultez intermedia
+    17: "Adultez intermedia (45 a 59 años)",
+    18: "Adultez intermedia (45 a 59 años)",
+    19: "Adultez intermedia (45 a 59 años)",
+    # Vejez
+    20: "Vejez (60 a 84 años)",
+    21: "Vejez (60 a 84 años)",
+    22: "Vejez (60 a 84 años)",
+    23: "Vejez (60 a 84 años)",
+    24: "Vejez (60 a 84 años)",
+    # Longevidad / Centenarios
+    25: "Longevidad / Centenarios (85 a 100+ años)",
+    26: "Longevidad / Centenarios (85 a 100+ años)",
+    27: "Longevidad / Centenarios (85 a 100+ años)",
+    28: "Longevidad / Centenarios (85 a 100+ años)",
+    # Edad desconocida
+    29: "Edad desconocida (Sin información)"
+}
