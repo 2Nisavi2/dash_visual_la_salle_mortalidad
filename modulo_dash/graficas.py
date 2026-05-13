@@ -45,7 +45,7 @@ def mapa_muertes(data_gold):
         margin={"r":0,"t":50,"l":0,"b":0},
         height=700
     )
-    fig.show()
+    return fig
 
 def lineas_mes(data_gold):
     ## Generación de consulta---------------------------------------------------------
@@ -95,7 +95,7 @@ def lineas_mes(data_gold):
         template='plotly_white'
     )
 
-    fig.show()
+    return fig
 
 def barras_homicidios(data_gold):
     ## Generación de consulta---------------------------------------------------------
@@ -125,7 +125,7 @@ def barras_homicidios(data_gold):
         hovermode='x unified',
         template='plotly_white'
     )
-    fig.show()
+    return fig
 
 def causas_muerte(data_gold):
     import plotly.graph_objects as go
@@ -159,7 +159,7 @@ def causas_muerte(data_gold):
         height=400
     )
 
-    fig.show()
+    return fig
 
 def generos(data_gold):
     import plotly.express as px
@@ -189,4 +189,4 @@ def generos(data_gold):
         template='plotly_white'
     )
 
-    fig.show()
+    return fig
