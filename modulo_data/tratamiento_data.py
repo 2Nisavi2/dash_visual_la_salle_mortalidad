@@ -13,6 +13,7 @@ def transformacion_data(data_anexo_1_bronce,
     import unicodedata
 
     ## Data Anexo 1----------------------------------------------------------------
+    print("--- Generando tratamiento de datos para Anexo 1.")
     data_anex_1_pla = data_anexo_1_bronce.copy()
 
     ## Normalización de nombres de columnas
@@ -66,6 +67,7 @@ def transformacion_data(data_anexo_1_bronce,
     data_anex_1_pla = data_anex_1_pla.drop(columns = ['cod_departamento', 'cod_municipio'])
 
     ## Data Anexo 2----------------------------------------------------------------
+    print("--- Generando tratamiento de datos para Anexo 2.")
     data_anex_2_pla = data_anexo_2_bronce.copy()
 
     ## Normalización de nombres de columnas
@@ -90,6 +92,7 @@ def transformacion_data(data_anexo_1_bronce,
     }, inplace=True)
 
     ## Data Divipola----------------------------------------------------------------
+    print("--- Generando tratamiento de datos para Divipola.")
     data_divi_pla = data_divi_bronce.copy()
     data_divi_pla.columns = data_divi_pla.columns.str.lower()
 

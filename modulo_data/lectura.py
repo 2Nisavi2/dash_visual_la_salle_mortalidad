@@ -26,6 +26,7 @@ def cargar_archivos_excel(path_carpeta):
     dataframes = {}
 
     # Validación de carpeta
+    print("--- Verificando existencia de archivos.")
     if not os.path.exists(path_carpeta):
         raise FileNotFoundError(f"La carpeta no existe: {path_carpeta}")
 
@@ -33,6 +34,7 @@ def cargar_archivos_excel(path_carpeta):
         raise NotADirectoryError(f"La ruta no es una carpeta válida: {path_carpeta}")
     
     # Validación de archivos
+    print("--- Realizando carga y lectura de fuentes.")
     for nombre_df, archivo in archivos_esperados.items():
         ruta_archivo = os.path.join(path_carpeta, archivo)
         # Validar existencia
@@ -61,5 +63,5 @@ def cargar_archivos_excel(path_carpeta):
             raise Exception(
                 f"Error al leer el archivo {archivo}: {str(e)}"
             )
-    print("Todos los archivos fueron validados y cargados correctamente.")
+    print("--- Todos los archivos fueron validados y cargados correctamente.")
     return dataframes

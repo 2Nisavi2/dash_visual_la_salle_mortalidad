@@ -1,4 +1,12 @@
 def mapa_muertes(data_gold):
+    """
+    Genera el mapa de muertes
+    por departamento.
+    ----------
+    df : pandas.DataFrame
+        DataFrame a leer.
+    salida : plot del mapa.
+    """
     ## Generación de consulta---------------------------------------------------------
     ## Filtro año 2019
     data_map = data_gold[data_gold['anio'] == 2019]
@@ -48,6 +56,14 @@ def mapa_muertes(data_gold):
     return fig
 
 def lineas_mes(data_gold):
+    """
+    Genera el gráfico de lineas
+    de muertes por mes.
+    ----------
+    df : pandas.DataFrame
+        DataFrame a leer.
+    salida : plot del gráfico.
+    """
     ## Generación de consulta---------------------------------------------------------
     import pandas as pd
     ## Filtro año 2019
@@ -98,6 +114,14 @@ def lineas_mes(data_gold):
     return fig
 
 def barras_homicidios(data_gold):
+    """
+    Genera el gráfico de barras
+    de ciudades con más homicidios.
+    ----------
+    df : pandas.DataFrame
+        DataFrame a leer.
+    salida : plot del gráfico.
+    """
     ## Generación de consulta---------------------------------------------------------
     import pandas as pd
     ## Filtro año 2019
@@ -128,6 +152,14 @@ def barras_homicidios(data_gold):
     return fig
 
 def causas_muerte(data_gold):
+    """
+    Genera tabla de motivos
+    de muerte.
+    ----------
+    df : pandas.DataFrame
+        DataFrame a leer.
+    salida : plot tabla.
+    """
     import plotly.graph_objects as go
 
     ## Generación de consulta---------------------------------------------------------
@@ -162,6 +194,14 @@ def causas_muerte(data_gold):
     return fig
 
 def generos(data_gold):
+    """
+    Genera gráfico de columnas apiladas
+    de muertes por genero.
+    ----------
+    df : pandas.DataFrame
+        DataFrame a leer.
+    salida : plot de gráfica.
+    """
     import plotly.express as px
 
     ## Generación de consulta---------------------------------------------------------
