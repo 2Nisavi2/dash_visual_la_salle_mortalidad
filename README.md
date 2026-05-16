@@ -4,6 +4,12 @@
     <img src="assets/logo.png" width="700">
 </p>
 
+Desarrollado por: Diego Nicolás Avila Moreno
+
+Aplicaicones I
+
+Maestría en inteligencia Artificial
+
 ## Introducción
 Este repositorio contiene los archivos de desarrollo para el visualizador de mortalidad en Colombia apra el año 2019. Su objetivo es almacenar la data, proceso de ETL y dsepliegue del dashboard resultante. El dshboard final puede ser obervado desde el siguiente enlace: web-production-a23a.up.railway.app.
 
