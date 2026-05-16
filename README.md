@@ -5,7 +5,7 @@
 </p>
 
 ## Introducción
-Este repositorio contiene los archivos de desarrollo para el visualizador de mortalidad en Colombia apra el año 2019. Su objetivo es almacenar la data, proceso de ETL y dsepliegue del dashboard resultante. El dshboard final puede ser obervado desde el siguiente [LINK](web-production-a23a.up.railway.app).
+Este repositorio contiene los archivos de desarrollo para el visualizador de mortalidad en Colombia apra el año 2019. Su objetivo es almacenar la data, proceso de ETL y dsepliegue del dashboard resultante. El dshboard final puede ser obervado desde el siguiente enlace: web-production-a23a.up.railway.app.
 
 ## Estructura del proyecto
 ```bash
@@ -78,7 +78,7 @@ El paso a paso del despliegue:
 
 ## Instrucción para su uso local.
 Existen dos procesos en la tarea de uso de la herramienta localmente.
-- Proceso de ejecución de ETL (no obligatoria): consiste en realizar la ejecución del modulo `pre.py` el cual ejecuta als tareas de transformación de las versión bronze del desarrollo. Es importante que los archivos de origen del DANE `anexo_1.xlsx`, `anexo_2.xlsx` y `divipola.xlsx` esten correctamente almacenados en la carpeta `data/`. Al asegurar la integridad de la data, se realiza el proceso de ejecución del modulo. Desde la terminal ejecutar `python pre.py` el cual aplicará la ejecución del modulo y mostrará el estado del paso a paso de ejecuión. El resultado será la cpa gold en formato parquet almacenada en `data/parquet_gold/`.
+- Proceso de ejecución de ETL (no obligatoria): consiste en realizar la ejecución del modulo `pre.py` el cual ejecuta las tareas de transformación de las versión bronze del desarrollo. Es importante que los archivos de origen del DANE `anexo_1.xlsx`, `anexo_2.xlsx` y `divipola.xlsx` esten correctamente almacenados en la carpeta `data/`. Al asegurar la integridad de la data, se realiza el proceso de ejecución del modulo. Desde la terminal ejecutar `python pre.py` el cual aplicará la ejecución del modulo y mostrará el estado del paso a paso de ejecuión. El resultado será la capa gold en formato parquet almacenada en `data/parquet_gold/`.
 - Proceso de ejecución de la aplicación: nuevamente en terminal ejecutar la función `python/app.py`. El proceso dentro de la terminal quedara en ejecución, por lo que solo deberá utilizar la URL al servido `http://127.0.0.1:8050/`.
 
-**IMPORTANTE**: asegurece de haber isntalado las librerias incluidas en [requitements](requirements.txt)
+**IMPORTANTE**: asegurece de haber instalado las librerias incluidas en [requitements](requirements.txt)
