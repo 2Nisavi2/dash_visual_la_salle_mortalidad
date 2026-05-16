@@ -11,8 +11,10 @@ df = leer_parquet_particionado("data/parquet_gold")
 fig1 = graficas.mapa_muertes(df)
 fig2 = graficas.lineas_mes(df)
 fig3 = graficas.barras_homicidios(df)
-fig4 = graficas.causas_muerte(df)
-fig5 = graficas.generos(df)
+fig4 = graficas.indice_muerte(df)
+fig5 = graficas.causas_muerte(df)
+fig6 = graficas.generos(df)
+fig7 = graficas.hist_mortalidad(df)
 
 # APP
 app = Dash(
@@ -83,7 +85,8 @@ app.layout = dbc.Container(
                     [
                         dcc.Graph(figure=fig1),
                         dcc.Graph(figure=fig3),
-                        dcc.Graph(figure=fig5)
+                        dcc.Graph(figure=fig5),
+                        dcc.Graph(figure=fig7)
                     ],
                     width=6
                 ),
@@ -92,7 +95,8 @@ app.layout = dbc.Container(
                 dbc.Col(
                     [
                         dcc.Graph(figure=fig2),
-                        dcc.Graph(figure=fig4)
+                        dcc.Graph(figure=fig4),
+                        dcc.Graph(figure=fig6)
                     ],
                     width=6
                 )

@@ -151,6 +151,46 @@ def barras_homicidios(data_gold):
     )
     return fig
 
+def indice_muerte (data_gold):
+    """
+    Genera el gráfico circular
+    de minucipios con menos cantidad de homicidios
+    ----------
+    df : pandas.DataFrame
+        DataFrame a leer.
+    salida : plot del gráfico.
+    """
+    ## Generación de consulta---------------------------------------------------------
+    import plotly.express as px
+    ## Filtro año 2019
+    data_cir = data_gold[data_gold['anio'] == 2019]
+
+    ## Agrupación por departamento
+    data_cir = data_cir.groupby(['municipio']).size().reset_index(name='conteo_muertes')
+    data_cir = data_cir.sort_values('conteo_muertes', ascending=True).reset_index(drop=True)
+    data_cir = data_cir.head(10)
+    data_cir
+
+    ## Generación de gráfico
+    fig = px.pie(
+        data_cir,
+        names='municipio',
+        values='conteo_muertes',
+        title='Distribución de mortalidad por municipios',
+        hole=0.3   # Donut chart
+    )
+
+    fig.update_traces(
+        textposition='inside',
+        textinfo='percent+label'
+    )
+    fig.update_layout(
+        height=700,
+        template='plotly_white'
+    )
+
+    return fig
+
 def causas_muerte(data_gold):
     """
     Genera tabla de motivos
@@ -229,4 +269,83 @@ def generos(data_gold):
         template='plotly_white'
     )
 
+    return fig
+
+def hist_mortalidad(data_gold):
+    """
+    Generahistograma de eventos de muerte
+    por etapas de vida del DANE.
+    ----------
+    df : pandas.DataFrame
+        DataFrame a leer.
+    salida : plot de gráfica.
+    """
+    import plotly.express as px
+
+    ## Generación de consulta---------------------------------------------------------
+    ## Filtro año 2019
+    data_dis = data_gold[data_gold['anio'] == 2019]
+
+    from modulo_data.diccionarios import dicc_grupo_edad_categoria
+    ## Clasificación de edades
+    data_dis['categoria_grupo_edad'] = (
+        data_dis['grupo_edad_1']
+        .map(dicc_grupo_edad_categoria)
+    )
+
+    ## Data factory de categorias
+    orden_categorias = [
+        'Mortalidad neonatal (Menor de 1 mes)',
+        'Mortalidad infantil (1 a 11 meses)',
+        'Primera infancia (1 a 4 años)',
+        'Niñez (5 a 14 años)',
+        'Adolescencia (15 a 19 años)',
+        'Juventud (20 a 29 años)',
+        'Adultez temprana (30 a 44 años)',
+        'Adultez intermedia (45 a 59 años)',
+        'Vejez (60 a 84 años)',
+        'Longevidad / Centenarios (85 a 100+ años)',
+        'Edad desconocida (Sin información)'
+    ]
+
+    ## Generación de distribuciones-------------------------------------------------
+    import plotly.figure_factory as ff
+
+    # Lista categorías
+    categorias = (
+        data_dis['categoria_grupo_edad']
+        .unique()
+    )
+
+    # Contenedores
+    hist_data = []
+
+    group_labels = []
+
+    # Variable numérica continua
+    # Reemplazar 'edad' por la columna real de edad
+    for categoria in categorias:
+        datos = data_dis.loc[
+            data_dis['categoria_grupo_edad'] == categoria,
+            'grupo_edad_1'
+        ].dropna()
+        # Validar existencia de datos
+        if len(datos) > 0:
+            hist_data.append(datos)
+            group_labels.append(categoria)
+    fig = px.histogram(
+        data_dis,
+        x='categoria_grupo_edad',
+        color='categoria_grupo_edad',
+        category_orders={
+            'categoria_grupo_edad': orden_categorias
+        }
+    )
+    fig.update_layout(
+        title='Distribución de probabilidad por grupos de edad - 2019',
+        xaxis_title='Edad',
+        yaxis_title='Densidad',
+        height=700,
+        template='plotly_white'
+    )
     return fig
