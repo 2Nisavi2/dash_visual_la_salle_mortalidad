@@ -11,7 +11,10 @@ Aplicaicones I
 Maestría en inteligencia Artificial
 
 ## Introducción
-Este repositorio contiene los archivos de desarrollo para el visualizador de mortalidad en Colombia apra el año 2019. Su objetivo es almacenar la data, proceso de ETL y dsepliegue del dashboard resultante. El dshboard final puede ser obervado desde el siguiente web-production-a23a.up.railway.app.
+Este repositorio contiene los archivos de desarrollo para el visualizador de mortalidad en Colombia apra el año 2019. Su objetivo es almacenar la data, proceso de ETL y dsepliegue del dashboard resultante.
+
+URL repositorio en GitHub: [Repo](https://github.com/2Nisavi2/dash_visual_la_salle_mortalidad)
+URL visualizador: [Dash](https://web-production-a23a.up.railway.app/)
 
 ## Estructura del proyecto
 ```bash
